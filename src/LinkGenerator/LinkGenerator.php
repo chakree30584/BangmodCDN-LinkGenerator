@@ -83,7 +83,6 @@ class LinkGenerator {
     public function getLink() {
         $encryptor = new Encryptor();
         $plaintoken = $this->ip . $this->useragent. $this->expiry . " " . $this->key;
-        echo $plaintoken;
         $encryptedToken = $encryptor->encrypt($plaintoken);
         return $this->url."?t=".Base64Url::encode($encryptedToken)."&e=".$this->expiry;
     }
